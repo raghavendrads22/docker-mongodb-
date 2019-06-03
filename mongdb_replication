@@ -1,0 +1,10 @@
+FROM mongo
+MAINTAINER Raghavendar <raghavendar.d@kpisoft.com>
+RUN rm /etc/mongod.conf.orig
+COPY mongod.conf.orig /etc/
+COPY mongorc.js /etc/
+RUN chmod 700 /etc/mongorc.js
+RUN chmod 700 /etc/mongod.conf.orig
+EXPOSE 27017
+#ENTRYPOINT ["/usr/bin/mongod", "--replSet", "rs0"]
+#CMD ["mongo"] 
